@@ -19,12 +19,19 @@ export default function LoginPage() {
         }
     }
 
+    const toggleSignup = () => {
+        navigate("/signup")
+    }   
+
     return (
-        <div>
+        <div className="login-page">
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
-                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                <p className="auth-toggle"> Don't have an account? {' '}
+                    <span onClick={toggleSignup}>Sign Up</span>
+                </p>
                 <button type="submit">Login</button>
             </form>
         </div>
