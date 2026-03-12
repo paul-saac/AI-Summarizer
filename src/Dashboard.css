@@ -1,0 +1,140 @@
+.dashboard {
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  width: 100%;
+}
+/* ── Navigation ── */
+.dashboard__nav {
+  width: 100%;
+  background-color: #242424;
+  border-bottom: 1px solid #383232;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.dashboard__brand {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e7dfdf;
+  letter-spacing: 0.5px;
+}
+
+.dashboard__account {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dashboard__email {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.dashboard__logout {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid #3d3535;
+  background-color: #1a1a1a;
+  color: #e7dfdf;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.dashboard__logout:hover {
+  border-color: #646cff;
+  background-color: #2a2a2a;
+}
+
+/* ── Main content ── */
+.dashboard__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+  gap: 16px;
+}
+
+.dashboard__main h2 {
+  font-size: 1.8rem;
+  color: #e7dfdf;
+  margin: 0;
+}
+
+.dashboard__hint {
+  font-size: 13px;
+  color: #aaa;
+  margin: 0;
+}
+
+.dashboard__main textarea {
+  width: 100%;
+  max-width: 640px;
+  padding: 14px;
+  border: 1px solid #3d3535;
+  border-radius: 8px;
+  background: #242424;
+  color: #e7dfdf;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  resize: vertical;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.dashboard__main textarea:focus {
+  border-color: #646cff;
+}
+
+.dashboard__summarize {
+  padding: 10px 28px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: #646cff;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.dashboard__summarize:hover:not(:disabled) {
+  background-color: #535bf2;
+}
+
+.dashboard__summarize:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Summary result ── */
+.dashboard__result {
+  width: 100%;
+  max-width: 640px;
+  background-color: #242424;
+  border: 1px solid #383232;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.dashboard__result h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  color: #646cff;
+}
+
+.dashboard__result p {
+  margin: 0;
+  font-size: 14px;
+  color: #e7dfdf;
+  line-height: 1.6;
+}

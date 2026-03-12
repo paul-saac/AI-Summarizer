@@ -1,21 +1,27 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .auth-page {
   border: 1px solid #383232;
-  padding: 25px;
+  padding: 25px 40px;
   border-radius: 10px;
   background-color: #242424;
+  width: 320px;
+  margin: auto;
 }
 
 .auth-page form {
   display: flex;
   flex-direction: column;
-
 }
 
 .auth-page label {
@@ -35,12 +41,28 @@
   font-size: 13px;
   outline: none;
   transition: border-color 0.2s;
-  width: 200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.auth-page input:focus {
+  border-color: #646cff;
 }
 
 .auth-page button {
   margin-top: 10px;
 }
+
 .auth-page p {
   font-size: 12px;
 }
+
+.auth-toggle span {
+  color: #646cff;
+  cursor: pointer;
+}
+
+.auth-toggle span:hover {
+  text-decoration: underline;
+}
+
