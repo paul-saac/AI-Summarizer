@@ -86,28 +86,15 @@ export default function Dashboard() {
         <p className="dashboard__hint">Paste your text below or upload a PDF file.</p>
 
         <div className="dashboard__upload">
-          <input
-            type="file"
-            accept=".pdf"
-            ref={fileInputRef}
-            onChange={handleFileUpload}
-            hidden
-          />
-          <button
-            className="dashboard__upload-btn"
-            onClick={() => fileInputRef.current.click()}
-          >
+          <input type="file" accept=".pdf" ref={fileInputRef} onChange={handleFileUpload} hidden/>
+          <button className="dashboard__upload-btn" onClick={() => fileInputRef.current.click()}>
             Upload PDF
           </button>
           {fileName && <span className="dashboard__filename">{fileName}</span>}
         </div>
 
-        <textarea
-          rows="10"
-          placeholder="Paste your text here..."
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
+        <textarea rows="10" placeholder="Paste your text here..." value={text} onChange={(e) => setText(e.target.value)}/>
+          
         <button
           className="dashboard__summarize"
           onClick={handleSummarize}
