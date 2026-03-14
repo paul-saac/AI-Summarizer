@@ -87,9 +87,7 @@ export default function Dashboard() {
 
         <div className="dashboard__upload">
           <input type="file" accept=".pdf" ref={fileInputRef} onChange={handleFileUpload} hidden/>
-          <button className="dashboard__upload-btn" onClick={() => fileInputRef.current.click()}>
-            Upload PDF
-          </button>
+          <button className="dashboard__upload-btn" onClick={() => fileInputRef.current.click()}>Upload PDF</button>
           {fileName && <span className="dashboard__filename">{fileName}</span>}
         </div>
 
