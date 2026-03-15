@@ -21,6 +21,7 @@ export default function Dashboard() {
   const [fileName, setFileName] = useState("")
   const fileInputRef = useRef(null)
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY
+  const configuredModel = import.meta.env.VITE_GEMINI_MODEL
   const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null
 
   const extractTextFromPdf = async (file) => {
@@ -66,7 +67,11 @@ export default function Dashboard() {
 
     setLoading(true)
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+      const modelCandidates = [
+        configuredModel,
+        "gemini-2.0-flash",
+        "gemini-1.5-flash-latest",
+      ].filter(Boolean)
 
       const prompt = `
 Summarize the following text in clear bullet points.
@@ -76,13 +81,29 @@ Text:
 ${text}
 `
 
-      const result = await model.generateContent(prompt)
-      const response = await result.response
-      const output = response.text()
+      let output = ""
+      let lastError = null
+
+      for (const modelName of modelCandidates) {
+        try {
+          const model = genAI.getGenerativeModel({ model: modelName })
+          const result = await model.generateContent(prompt)
+          const response = await result.response
+          output = response.text()
+          break
+        } catch (error) {
+          lastError = error
+        }
+      }
+
+      if (!output) {
+        throw lastError || new Error("No Gemini model could generate a response.")
+      }
+
       setSummary(output)
     } catch (error) {
       console.error("Gemini summarize failed:", error)
-      alert("Failed to summarize. Check API key, quota, and network.")
+      alert("Failed to summarize. Set VITE_GEMINI_MODEL in .env.local (for example: gemini-2.0-flash) and check API key permissions.")
     } finally {
       setLoading(false)
     }
