@@ -3,7 +3,7 @@ import { signOut } from "firebase/auth"
 import { auth } from "../services/firebase"
 import { useAuth } from "../context/AuthContext"
 import { useNavigate } from "react-router-dom"
-import { GoogleGenerativeAI } from "@google/generative-ai";
+// import { GoogleGenerativeAI } from "@google/generative-ai"; 
 import * as pdfjsLib from "pdfjs-dist"
 import "../Dashboard.css"
 
