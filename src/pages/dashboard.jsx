@@ -123,23 +123,18 @@ ${text}
           <button className="dashboard__logout" onClick={handleLogout}>Logout</button>
         </div>
       </nav>
-
       <main className="dashboard__main">
         <h2>Summarize Text</h2>
         <p className="dashboard__hint">Paste your text below or upload a PDF file.</p>
-
         <div className="dashboard__upload">
           <input type="file" accept=".pdf" ref={fileInputRef} onChange={handleFileUpload} hidden />
           <button className="dashboard__upload-btn" onClick={() => fileInputRef.current.click()}>Upload PDF</button>
           {fileName && <span className="dashboard__filename">{fileName}</span>}
         </div>
-
         <textarea rows="10" placeholder="Paste your text here..." value={text} onChange={(e) => setText(e.target.value)} />
-
         <button className="dashboard__summarize" onClick={handleSummarize} disabled={loading}>
           {loading ? "Summarizing..." : "Summarize"}
         </button>
-
         {summary && (
           <div className="dashboard__result">
             <h3>Summary</h3>
