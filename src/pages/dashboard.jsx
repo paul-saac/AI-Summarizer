@@ -148,6 +148,7 @@ ${text}
         )}
 
         {/* Wlalang para lang may ma commit */}
+        {/* lol */}
       </main>
     </div>
   )
