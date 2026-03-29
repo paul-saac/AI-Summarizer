@@ -146,6 +146,8 @@ ${text}
             <p>{summary}</p>
           </div>
         )}
+
+        {/* Wlalang para lang may ma commit */}
       </main>
     </div>
   )
